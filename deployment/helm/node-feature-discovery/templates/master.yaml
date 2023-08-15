@@ -40,7 +40,7 @@ spec:
             exec:
               command:
               - "/usr/bin/grpc_health_probe"
-              - "-addr=:{{ .Values.master.port | default "8080" }}"
+              - "-addr=localhost:{{ .Values.master.port | default "8080" }}"
               {{- if .Values.tls.enable }}
               - "-tls"
               - "-tls-ca-cert=/etc/kubernetes/node-feature-discovery/certs/ca.crt"
@@ -53,7 +53,7 @@ spec:
             exec:
               command:
               - "/usr/bin/grpc_health_probe"
-              - "-addr=:{{ .Values.master.port | default "8080" }}"
+              - "-addr=localhost:{{ .Values.master.port | default "8080" }}"
               {{- if .Values.tls.enable }}
               - "-tls"
               - "-tls-ca-cert=/etc/kubernetes/node-feature-discovery/certs/ca.crt"
